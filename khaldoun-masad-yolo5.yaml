@@ -22,3 +22,37 @@ spec:
       containers:
       - name: khaldoun-masad-yolo-docker-container
         image: khaldoun-masad-yolo-image:tag
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: khaldoun-masad-yolo-hpa
+  namespace: khaldoun-masad
+  labels:
+    app: khaldoun-masad-yolo
+    env: dev
+    release: v1.0
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: khaldoun-masad-yolo-deployment
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 1
+
+
+
+
+
+
+
+
+
+
