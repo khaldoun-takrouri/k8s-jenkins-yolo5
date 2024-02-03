@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: khaldoun-masad-deployment
+  name: khaldoun-masad-yolo-deployment
   namespace: khaldoun-masad
   labels:
     app: khaldoun-masad-yolo
