@@ -22,7 +22,9 @@ spec:
       containers:
       - name: khaldoun-masad-yolo-docker-container
         image: khaldoun-masad-yolo-image:tag
+
 ---
+
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -45,7 +47,7 @@ spec:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: 1
+        averageUtilization: 3
 
 
 
